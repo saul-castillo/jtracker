@@ -27,6 +27,7 @@ jobs:
       - name: Run tracker
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
         run: |
           if [ "${{ inputs.test_email }}" = "true" ]; then python tracker.py --test-email; else python tracker.py; fi
       - name: Save deduplication state
@@ -38,4 +39,3 @@ jobs:
           git add data/seen.json
           git commit -m "Update seen jobs"
           git push
-
