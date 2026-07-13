@@ -13,11 +13,11 @@ STATE_CODES=r"AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|
 
 def greenhouse(company, token):
     r=requests.get(f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true",timeout=30); r.raise_for_status()
-    return [{"company":company,"title":x["title"],"location":x.get("location",{}).get("name","Unknown"),"url":x["absolute_url"],"description":re.sub("<[^>]+>"," ",x.get("content",""))} for x in r.json().get("jobs",[])]
+    return [{"company":company,"platform":"Greenhouse","title":x["title"],"location":x.get("location",{}).get("name","Unknown"),"url":x["absolute_url"],"description":re.sub("<[^>]+>"," ",x.get("content",""))} for x in r.json().get("jobs",[])]
 
 def lever(company, token):
     r=requests.get(f"https://api.lever.co/v0/postings/{token}?mode=json",timeout=30); r.raise_for_status()
-    return [{"company":company,"title":x["text"],"location":x.get("categories",{}).get("location","Unknown"),"url":x["hostedUrl"],"description":x.get("descriptionPlain","")} for x in r.json()]
+    return [{"company":company,"platform":"Lever","title":x["text"],"location":x.get("categories",{}).get("location","Unknown"),"url":x["hostedUrl"],"description":x.get("descriptionPlain","")} for x in r.json()]
 
 def workday(company, endpoint):
     jobs=[]; offset=0
@@ -27,7 +27,7 @@ def workday(company, endpoint):
     while True:
         r=requests.post(endpoint,json={"appliedFacets":{},"limit":20,"offset":offset,"searchText":"intern"},timeout=30); r.raise_for_status()
         data=r.json(); postings=data.get("jobPostings",[])
-        jobs.extend({"company":company,"title":x["title"],"location":x.get("locationsText","Unknown"),"url":public_base+x["externalPath"],"description":""} for x in postings)
+        jobs.extend({"company":company,"platform":"Workday","title":x["title"],"location":x.get("locationsText","Unknown"),"url":public_base+x["externalPath"],"description":""} for x in postings)
         offset += len(postings)
         if not postings or offset >= data.get("total",0) or offset >= 100: break
     return jobs
@@ -47,13 +47,14 @@ def rank(job):
 def match(job):
     text=(job["title"]+" "+job["description"]).lower()
     title=job["title"].lower()
-    wrong_term=any(x in title for x in ("fall","spring","winter","co-op","coop"))
+    wrong_term=bool(re.search(r"\b(fall|autumn|spring|winter)\s*(?:of\s*)?20(?:26|27)\b|\b20(?:26|27)\s*(fall|autumn|spring|winter)\b",text))
     wrong_year=any(str(y) in title for y in range(2024,2031) if y != 2027)
+    target_year="2027" in text
     intern_title=bool(re.search(r"\bintern(?:ship)?\b",title))
     hardware_title=any(x in title for x in HARDWARE)
     location=job["location"].lower()
     us_location=("united states" in location or "usa" in location or "us," in location or bool(re.search(rf",\s*({STATE_CODES})\b",job["location"],re.I)))
-    return intern_title and hardware_title and us_location and not wrong_term and not wrong_year and not any(x in title for x in EXCLUDE)
+    return intern_title and hardware_title and target_year and us_location and not wrong_term and not wrong_year and not any(x in title for x in EXCLUDE)
 
 def notify_github(subject, body):
     token=os.environ.get("GITHUB_TOKEN")
@@ -91,14 +92,14 @@ def run(dry=False,test=False):
     if dry:
         for points,_,job in new[:20]: print(points,job["company"],job["title"],job["location"])
         return
-    pending=state.get("pending",[])
+    pending=[item for item in state.get("pending",[]) if match(item["job"])]
     pending_keys={item["key"] for item in pending}
     for points,reasons,job in new:
         if key(job) not in pending_keys:
             pending.append({"key":key(job),"points":points,"reasons":reasons,"job":job})
     now=datetime.now(ZoneInfo("America/New_York"))
     if pending and not quiet_hours(now):
-        rows="\n".join(f'- **[{x["job"]["title"]}]({x["job"]["url"]})** — {x["job"]["company"]}, {x["job"]["location"]} — score {x["points"]} ({", ".join(x["reasons"])})' for x in pending)
+        rows="\n\n".join(f'### {x["job"]["company"]} — [{x["job"]["title"]}]({x["job"]["url"]})\n- **Platform:** {x["job"].get("platform","Unknown")}\n- **Location:** {x["job"]["location"]}\n- **Score:** {x["points"]}\n- **Matched:** {", ".join(x["reasons"])}' for x in pending)
         label="morning digest" if state.get("pending") and now.hour < 11 else "new matches"
         notify_github(f'JTracker: {len(pending)} {label}',"## New hardware internship matches\n\n"+rows)
         pending=[]
