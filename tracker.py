@@ -38,8 +38,9 @@ def match(job):
 
 def send(config, subject, body):
     token=os.environ.get("BREVO_API_KEY")
-    if not token: raise RuntimeError("BREVO_API_KEY is missing")
-    r=requests.post("https://api.brevo.com/v3/smtp/email",headers={"api-key":token,"content-type":"application/json"},json={"sender":{"name":"JTracker","email":config["sender_email"]},"to":[{"email":config["recipient"]}],"subject":subject,"htmlContent":body},timeout=30)
+    email=os.environ.get("NOTIFICATION_EMAIL")
+    if not token or not email: raise RuntimeError("BREVO_API_KEY or NOTIFICATION_EMAIL is missing")
+    r=requests.post("https://api.brevo.com/v3/smtp/email",headers={"api-key":token,"content-type":"application/json"},json={"sender":{"name":"JTracker","email":email},"to":[{"email":email}],"subject":subject,"htmlContent":body},timeout=30)
     r.raise_for_status()
 
 def run(dry=False,test=False):
