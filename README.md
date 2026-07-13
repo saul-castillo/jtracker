@@ -1,16 +1,9 @@
-# JTracker
+# jtracker
 
-JTracker checks official ATS feeds hourly, ranks hardware internships, and opens assigned GitHub issues for new matches. GitHub then sends the account's normal email notification.
+Personal scheduled monitoring and notification sandbox.
 
-Current live coverage: SpaceX, Anduril, Astranis, Neuralink, and Zoox. Company-specific Workday connectors for the semiconductor list are the next expansion.
+It checks configured public sources for relevant changes, maintains compact local
+state to avoid duplicate events, and reports updates through assigned GitHub issues.
 
-## Start it
-
-In GitHub Actions, open **Hourly internship tracker**, select **Run workflow**, enable **Send a test notification only**, and run it. The schedule runs at 17 minutes past every hour and creates nothing when no new match exists.
-
-No external service or user-managed secret is required. The workflow uses GitHub's short-lived built-in token.
-
-## Local test
-
-    pip install -r requirements.txt
-    python tracker.py --dry-run
+The automation runs on a fixed schedule and can also be tested manually from the
+Actions tab.
