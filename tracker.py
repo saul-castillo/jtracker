@@ -36,17 +36,17 @@ def match(job):
     hardware_title=any(x in title for x in HARDWARE)
     return intern_title and hardware_title and not wrong_term and not wrong_year and not any(x in title for x in EXCLUDE)
 
-def send(config, subject, body):
-    token=os.environ.get("BREVO_API_KEY")
-    email=os.environ.get("NOTIFICATION_EMAIL")
-    if not token or not email: raise RuntimeError("BREVO_API_KEY or NOTIFICATION_EMAIL is missing")
-    r=requests.post("https://api.brevo.com/v3/smtp/email",headers={"api-key":token,"content-type":"application/json"},json={"sender":{"name":"JTracker","email":email},"to":[{"email":email}],"subject":subject,"htmlContent":body},timeout=30)
+def notify_github(subject, body):
+    token=os.environ.get("GITHUB_TOKEN")
+    repository=os.environ.get("GITHUB_REPOSITORY")
+    if not token or not repository: raise RuntimeError("GitHub Actions environment is missing")
+    r=requests.post(f"https://api.github.com/repos/{repository}/issues",headers={"authorization":f"Bearer {token}","accept":"application/vnd.github+json"},json={"title":subject,"body":body,"assignees":["saul-castillo"]},timeout=30)
     r.raise_for_status()
 
 def run(dry=False,test=False):
     config=json.loads((ROOT/"config.json").read_text())
     if test:
-        send(config,"JTracker test: email is working","<h2>JTracker is connected.</h2>"); return
+        notify_github("JTracker test: notifications are working","JTracker is connected. GitHub should email this assigned issue to your configured notification address."); return
     jobs=[]; failures=[]
     for company,kind,token in config["sources"]:
         try: jobs += (greenhouse if kind=="greenhouse" else lever)(company,token)
@@ -59,8 +59,8 @@ def run(dry=False,test=False):
         for points,_,job in new[:20]: print(points,job["company"],job["title"],job["location"])
         return
     if new:
-        rows="".join(f'<tr><td>{html.escape(j["company"])}</td><td><a href="{html.escape(j["url"])}">{html.escape(j["title"])}</a></td><td>{html.escape(j["location"])}</td><td>{p}</td><td>{html.escape(", ".join(r))}</td></tr>' for p,r,j in new)
-        send(config,f'JTracker: {len(new)} new hardware internship match(es)',"<h2>New hardware internship matches</h2><table border=1 cellpadding=6><tr><th>Company</th><th>Role</th><th>Location</th><th>Score</th><th>Why</th></tr>"+rows+"</table>")
+        rows="\n".join(f'- **[{j["title"]}]({j["url"]})** — {j["company"]}, {j["location"]} — score {p} ({", ".join(r)})' for p,r,j in new)
+        notify_github(f'JTracker: {len(new)} new hardware internship match(es)',"## New hardware internship matches\n\n"+rows)
     state_path.write_text(json.dumps({"seen":sorted(seen|{key(x[2]) for x in ranked})},indent=2)+"\n")
     if failures and not jobs: raise RuntimeError("All sources failed")
 
