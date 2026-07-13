@@ -1,4 +1,5 @@
 import argparse, hashlib, html, json, os, re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import requests
 
@@ -6,6 +7,7 @@ ROOT=Path(__file__).parent
 HARDWARE={"analog":9,"mixed-signal":9,"mixed signal":9,"asic":9,"fpga":9,"rtl":9,"silicon":8,"circuit":8,"hardware":8,"electrical":8,"verification":7,"validation":7,"embedded":7,"firmware":7,"architecture":7,"physical design":8,"signal integrity":8,"power integrity":8,"rf":8,"pcb":7,"semiconductor":7,"process engineer":6,"test engineer":5,"packaging":6,"robotics":4}
 METROS=("san francisco","bay area","san jose","santa clara","sunnyvale","mountain view","austin","boston","cambridge","new york","seattle","los angeles","san diego","denver","phoenix","chicago","dallas","raleigh","durham","washington","arlington","irvine","baltimore","philadelphia","pittsburgh")
 EXCLUDE=("senior","staff","principal","manager","director","full time","full-time")
+STATE_CODES=r"AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC"
 
 def greenhouse(company, token):
     r=requests.get(f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true",timeout=30); r.raise_for_status()
@@ -14,6 +16,19 @@ def greenhouse(company, token):
 def lever(company, token):
     r=requests.get(f"https://api.lever.co/v0/postings/{token}?mode=json",timeout=30); r.raise_for_status()
     return [{"company":company,"title":x["text"],"location":x.get("categories",{}).get("location","Unknown"),"url":x["hostedUrl"],"description":x.get("descriptionPlain","")} for x in r.json()]
+
+def workday(company, endpoint):
+    jobs=[]; offset=0
+    match_url=re.match(r"(https://[^/]+)/wday/cxs/[^/]+/([^/]+)/jobs",endpoint)
+    if not match_url: raise ValueError("Invalid Workday endpoint")
+    public_base=f"{match_url.group(1)}/{match_url.group(2)}"
+    while True:
+        r=requests.post(endpoint,json={"appliedFacets":{},"limit":20,"offset":offset,"searchText":"intern"},timeout=30); r.raise_for_status()
+        data=r.json(); postings=data.get("jobPostings",[])
+        jobs.extend({"company":company,"title":x["title"],"location":x.get("locationsText","Unknown"),"url":public_base+x["externalPath"],"description":""} for x in postings)
+        offset += len(postings)
+        if not postings or offset >= data.get("total",0) or offset >= 100: break
+    return jobs
 
 def key(job):
     return hashlib.sha256("|".join(str(job[x]) for x in ("company","title","location","url")).lower().encode()).hexdigest()[:20]
@@ -34,7 +49,9 @@ def match(job):
     wrong_year=any(str(y) in title for y in range(2024,2031) if y != 2027)
     intern_title=bool(re.search(r"\bintern(?:ship)?\b",title))
     hardware_title=any(x in title for x in HARDWARE)
-    return intern_title and hardware_title and not wrong_term and not wrong_year and not any(x in title for x in EXCLUDE)
+    location=job["location"].lower()
+    us_location=("united states" in location or "usa" in location or "us," in location or bool(re.search(rf",\s*({STATE_CODES})\b",job["location"],re.I)))
+    return intern_title and hardware_title and us_location and not wrong_term and not wrong_year and not any(x in title for x in EXCLUDE)
 
 def notify_github(subject, body):
     token=os.environ.get("GITHUB_TOKEN")
@@ -48,9 +65,17 @@ def run(dry=False,test=False):
     if test:
         notify_github("JTracker test: notifications are working","JTracker is connected. GitHub should email this assigned issue to your configured notification address."); return
     jobs=[]; failures=[]
-    for company,kind,token in config["sources"]:
-        try: jobs += (greenhouse if kind=="greenhouse" else lever)(company,token)
-        except Exception as e: failures.append(f"{company}: {e}")
+    def fetch_source(source):
+        company,kind,token=source
+        fetcher={"greenhouse":greenhouse,"lever":lever,"workday":workday}[kind]
+        return company,fetcher(company,token)
+    with ThreadPoolExecutor(max_workers=8) as pool:
+      futures={pool.submit(fetch_source,source):source[0] for source in config["sources"]}
+      for future in as_completed(futures):
+        try:
+            _,source_jobs=future.result()
+            jobs += source_jobs
+        except Exception as e: failures.append(f"{futures[future]}: {e}")
     ranked=sorted([(rank(j)[0],rank(j)[1],j) for j in jobs if match(j)],reverse=True,key=lambda x:x[0])
     state_path=ROOT/"data/seen.json"; seen=set(json.loads(state_path.read_text())["seen"])
     new=[x for x in ranked if key(x[2]) not in seen]
@@ -65,4 +90,4 @@ def run(dry=False,test=False):
     if failures and not jobs: raise RuntimeError("All sources failed")
 
 if __name__=="__main__":
-    p=argparse.ArgumentParser(); p.add_argument("--dry-run",action="store_true"); p.add_argument("--test-email",action="store_true"); a=p.parse_args(); run(a.dry_run,a.test_email)
+    p=argparse.ArgumentParser(); p.add_argument("--dry-run",action="store_true"); p.add_argument("--test-notification",action="store_true"); a=p.parse_args(); run(a.dry_run,a.test_notification)
