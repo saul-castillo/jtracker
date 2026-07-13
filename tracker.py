@@ -47,14 +47,15 @@ def rank(job):
 def match(job):
     text=(job["title"]+" "+job["description"]).lower()
     title=job["title"].lower()
-    wrong_term=bool(re.search(r"\b(fall|autumn|spring|winter)\s*(?:of\s*)?20(?:26|27)\b|\b20(?:26|27)\s*(fall|autumn|spring|winter)\b",text))
-    wrong_year=any(str(y) in title for y in range(2024,2031) if y != 2027)
-    target_year="2027" in text
+    season_pairs=re.findall(r"\b(summer|fall|autumn|spring|winter)\s*(?:of\s*)?(20\d{2})\b|\b(20\d{2})\s*(summer|fall|autumn|spring|winter)\b",text)
+    normalized_pairs={(season or reverse_season,year or reverse_year) for season,year,reverse_year,reverse_season in season_pairs}
+    summer_2027=("summer","2027") in normalized_pairs
+    target_term=summer_2027 or ("2027" in text and not normalized_pairs)
     intern_title=bool(re.search(r"\bintern(?:ship)?\b",title))
     hardware_title=any(x in title for x in HARDWARE)
     location=job["location"].lower()
     us_location=("united states" in location or "usa" in location or "us," in location or bool(re.search(rf",\s*({STATE_CODES})\b",job["location"],re.I)))
-    return intern_title and hardware_title and target_year and us_location and not wrong_term and not wrong_year and not any(x in title for x in EXCLUDE)
+    return intern_title and hardware_title and target_term and us_location and not any(x in title for x in EXCLUDE)
 
 def notify_github(subject, body):
     token=os.environ.get("GITHUB_TOKEN")
