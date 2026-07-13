@@ -1,10 +1,10 @@
-name: Hourly internship tracker
+name: jtracker
 on:
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
-      test_email:
+      test_notification:
         description: Send a test notification only
         required: false
         type: boolean
@@ -29,9 +29,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ "${{ inputs.test_email }}" = "true" ]; then python tracker.py --test-email; else python tracker.py; fi
+          if [ "${{ inputs.test_notification }}" = "true" ]; then python tracker.py --test-notification; else python tracker.py; fi
       - name: Save deduplication state
-        if: ${{ inputs.test_email != true }}
+        if: ${{ inputs.test_notification != true }}
         run: |
           if git diff --quiet -- data/seen.json; then exit 0; fi
           git config user.name "jtracker-bot"
