@@ -1,6 +1,8 @@
-import argparse, hashlib, html, json, os, re
+import argparse, hashlib, json, os, re
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 import requests
 
 ROOT=Path(__file__).parent
@@ -60,11 +62,14 @@ def notify_github(subject, body):
     r=requests.post(f"https://api.github.com/repos/{repository}/issues",headers={"authorization":f"Bearer {token}","accept":"application/vnd.github+json"},json={"title":subject,"body":body,"assignees":["saul-castillo"]},timeout=30)
     r.raise_for_status()
 
+def quiet_hours(now):
+    return now.hour >= 23 or now.hour < 8
+
 def run(dry=False,test=False):
     config=json.loads((ROOT/"config.json").read_text())
     if test:
         notify_github("JTracker test: notifications are working","JTracker is connected. GitHub should email this assigned issue to your configured notification address."); return
-    jobs=[]; failures=[]
+    jobs=[]; failures=[]; source_counts={}
     def fetch_source(source):
         company,kind,token=source
         fetcher={"greenhouse":greenhouse,"lever":lever,"workday":workday}[kind]
@@ -75,18 +80,29 @@ def run(dry=False,test=False):
         try:
             _,source_jobs=future.result()
             jobs += source_jobs
+            source_counts[futures[future]]=len(source_jobs)
         except Exception as e: failures.append(f"{futures[future]}: {e}")
     ranked=sorted([(rank(j)[0],rank(j)[1],j) for j in jobs if match(j)],reverse=True,key=lambda x:x[0])
-    state_path=ROOT/"data/seen.json"; seen=set(json.loads(state_path.read_text())["seen"])
+    state_path=ROOT/"data/seen.json"; state=json.loads(state_path.read_text()); seen=set(state.get("seen",[]))
     new=[x for x in ranked if key(x[2]) not in seen]
-    print(json.dumps({"fetched":len(jobs),"matches":len(ranked),"new":len(new),"failures":failures},indent=2))
+    match_counts={}
+    for _,_,job in ranked: match_counts[job["company"]]=match_counts.get(job["company"],0)+1
+    print(json.dumps({"fetched":len(jobs),"matches":len(ranked),"new":len(new),"source_counts":source_counts,"match_counts":match_counts,"failures":failures},indent=2))
     if dry:
         for points,_,job in new[:20]: print(points,job["company"],job["title"],job["location"])
         return
-    if new:
-        rows="\n".join(f'- **[{j["title"]}]({j["url"]})** — {j["company"]}, {j["location"]} — score {p} ({", ".join(r)})' for p,r,j in new)
-        notify_github(f'JTracker: {len(new)} new hardware internship match(es)',"## New hardware internship matches\n\n"+rows)
-    state_path.write_text(json.dumps({"seen":sorted(seen|{key(x[2]) for x in ranked})},indent=2)+"\n")
+    pending=state.get("pending",[])
+    pending_keys={item["key"] for item in pending}
+    for points,reasons,job in new:
+        if key(job) not in pending_keys:
+            pending.append({"key":key(job),"points":points,"reasons":reasons,"job":job})
+    now=datetime.now(ZoneInfo("America/New_York"))
+    if pending and not quiet_hours(now):
+        rows="\n".join(f'- **[{x["job"]["title"]}]({x["job"]["url"]})** — {x["job"]["company"]}, {x["job"]["location"]} — score {x["points"]} ({", ".join(x["reasons"])})' for x in pending)
+        label="morning digest" if state.get("pending") and now.hour < 11 else "new matches"
+        notify_github(f'JTracker: {len(pending)} {label}',"## New hardware internship matches\n\n"+rows)
+        pending=[]
+    state_path.write_text(json.dumps({"seen":sorted(seen|{key(x[2]) for x in ranked}),"pending":pending},indent=2)+"\n")
     if failures and not jobs: raise RuntimeError("All sources failed")
 
 if __name__=="__main__":
