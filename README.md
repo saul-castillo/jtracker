@@ -8,7 +8,7 @@ Current live coverage: SpaceX, Anduril, Astranis, Neuralink, and Zoox. Company-s
 
 In GitHub Actions, open **Hourly internship tracker**, select **Run workflow**, enable **Send a test email only**, and run it. The schedule runs at 17 minutes past every hour and sends nothing when no new match exists.
 
-The repository secret `BREVO_API_KEY` must be configured. Never commit the key.
+The repository secrets `BREVO_API_KEY` and `NOTIFICATION_EMAIL` must be configured. Never commit either value.
 
 ## Local test
 
