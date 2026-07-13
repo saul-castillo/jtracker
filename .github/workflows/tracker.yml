@@ -5,12 +5,13 @@ on:
   workflow_dispatch:
     inputs:
       test_email:
-        description: Send a test email only
+        description: Send a test notification only
         required: false
         type: boolean
         default: false
 permissions:
   contents: write
+  issues: write
 concurrency:
   group: hourly-tracker
   cancel-in-progress: false
@@ -26,8 +27,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Run tracker
         env:
-          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ "${{ inputs.test_email }}" = "true" ]; then python tracker.py --test-email; else python tracker.py; fi
       - name: Save deduplication state
