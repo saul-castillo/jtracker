@@ -1,1 +1,336 @@
-{"sources":[["SpaceX","greenhouse","spacex"],["Anduril","greenhouse","andurilindustries"],["Astranis","greenhouse","astranis"],["Neuralink","greenhouse","neuralink"],["Zoox","lever","zoox"],["NVIDIA","workday","https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs"],["Intel","workday","https://intel.wd1.myworkdayjobs.com/wday/cxs/intel/External/jobs"],["Micron","workday","https://micron.wd1.myworkdayjobs.com/wday/cxs/micron/External/jobs"],["Analog Devices","workday","https://analogdevices.wd1.myworkdayjobs.com/wday/cxs/analogdevices/External/jobs"],["Marvell","workday","https://marvell.wd1.myworkdayjobs.com/wday/cxs/marvell/MarvellCareers/jobs"],["NXP","workday","https://nxp.wd3.myworkdayjobs.com/wday/cxs/nxp/careers/jobs"],["KLA","workday","https://kla.wd1.myworkdayjobs.com/wday/cxs/kla/Search/jobs"],["Applied Materials","workday","https://amat.wd1.myworkdayjobs.com/wday/cxs/amat/External/jobs"],["Microchip","workday","https://microchiphr.wd5.myworkdayjobs.com/wday/cxs/microchiphr/External/jobs"],["Altera","workday","https://altera.wd1.myworkdayjobs.com/wday/cxs/altera/altera/jobs"],["Blue Origin","workday","https://blueorigin.wd5.myworkdayjobs.com/wday/cxs/blueorigin/BlueOrigin/jobs"],["Draper","workday","https://draper.wd5.myworkdayjobs.com/wday/cxs/draper/Draper_Careers/jobs"],["Motorola Solutions","workday","https://motorolasolutions.wd5.myworkdayjobs.com/wday/cxs/motorolasolutions/Careers/jobs"],["Entegris","workday","https://entegris.wd1.myworkdayjobs.com/wday/cxs/entegris/EntegrisCareers/jobs"],["Silfex","workday","https://silfex.wd503.myworkdayjobs.com/wday/cxs/silfex/Silfex/jobs"],["Broadcom","workday","https://broadcom.wd1.myworkdayjobs.com/wday/cxs/broadcom/External_Career/jobs"],["Cadence","workday","https://cadence.wd1.myworkdayjobs.com/wday/cxs/cadence/Univ_Careers/jobs"],["GlobalFoundries","workday","https://globalfoundries.wd1.myworkdayjobs.com/wday/cxs/globalfoundries/External/jobs"]]}
+{
+  "max_workers": 10,
+  "sources": [
+    {
+      "company": "SpaceX",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "spacex"
+    },
+    {
+      "company": "Anduril",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "andurilindustries"
+    },
+    {
+      "company": "Astranis",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "astranis"
+    },
+    {
+      "company": "Neuralink",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "neuralink"
+    },
+    {
+      "company": "Zoox",
+      "kind": "lever",
+      "platform": "Lever",
+      "token": "zoox"
+    },
+    {
+      "company": "NVIDIA",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs"
+    },
+    {
+      "company": "Intel",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://intel.wd1.myworkdayjobs.com/wday/cxs/intel/External/jobs"
+    },
+    {
+      "company": "Micron",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://micron.wd1.myworkdayjobs.com/wday/cxs/micron/External/jobs"
+    },
+    {
+      "company": "Analog Devices",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://analogdevices.wd1.myworkdayjobs.com/wday/cxs/analogdevices/External/jobs"
+    },
+    {
+      "company": "Marvell",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://marvell.wd1.myworkdayjobs.com/wday/cxs/marvell/MarvellCareers/jobs"
+    },
+    {
+      "company": "NXP",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://nxp.wd3.myworkdayjobs.com/wday/cxs/nxp/careers/jobs"
+    },
+    {
+      "company": "KLA",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://kla.wd1.myworkdayjobs.com/wday/cxs/kla/Search/jobs"
+    },
+    {
+      "company": "Applied Materials",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://amat.wd1.myworkdayjobs.com/wday/cxs/amat/External/jobs"
+    },
+    {
+      "company": "Microchip",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://microchiphr.wd5.myworkdayjobs.com/wday/cxs/microchiphr/External/jobs"
+    },
+    {
+      "company": "Altera",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://altera.wd1.myworkdayjobs.com/wday/cxs/altera/altera/jobs"
+    },
+    {
+      "company": "Blue Origin",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://blueorigin.wd5.myworkdayjobs.com/wday/cxs/blueorigin/BlueOrigin/jobs"
+    },
+    {
+      "company": "Draper",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://draper.wd5.myworkdayjobs.com/wday/cxs/draper/Draper_Careers/jobs"
+    },
+    {
+      "company": "Motorola Solutions",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://motorolasolutions.wd5.myworkdayjobs.com/wday/cxs/motorolasolutions/Careers/jobs"
+    },
+    {
+      "company": "Entegris",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://entegris.wd1.myworkdayjobs.com/wday/cxs/entegris/EntegrisCareers/jobs"
+    },
+    {
+      "company": "Silfex",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://silfex.wd503.myworkdayjobs.com/wday/cxs/silfex/Silfex/jobs"
+    },
+    {
+      "company": "Broadcom",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://broadcom.wd1.myworkdayjobs.com/wday/cxs/broadcom/External_Career/jobs"
+    },
+    {
+      "company": "Cadence",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://cadence.wd1.myworkdayjobs.com/wday/cxs/cadence/Univ_Careers/jobs"
+    },
+    {
+      "company": "GlobalFoundries",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://globalfoundries.wd1.myworkdayjobs.com/wday/cxs/globalfoundries/External/jobs"
+    },
+    {
+      "company": "Samsung Semiconductor",
+      "kind": "workday",
+      "platform": "Workday",
+      "endpoint": "https://sec.wd3.myworkdayjobs.com/wday/cxs/sec/Samsung_Careers/jobs"
+    },
+    {
+      "company": "Qualcomm",
+      "kind": "eightfold",
+      "platform": "Eightfold",
+      "host": "https://careers.qualcomm.com",
+      "domain": "qualcomm.com"
+    },
+    {
+      "company": "AMD",
+      "kind": "jibe",
+      "platform": "iCIMS",
+      "endpoint": "https://careers.amd.com/api/jobs",
+      "queries": [
+        "2027",
+        "intern"
+      ]
+    },
+    {
+      "company": "Synopsys",
+      "kind": "talentbrew",
+      "platform": "TalentBrew",
+      "base_url": "https://careers.synopsys.com",
+      "org_id": "44408",
+      "query": "2027"
+    },
+    {
+      "company": "Siemens EDA",
+      "kind": "avature",
+      "platform": "Avature",
+      "base_url": "https://jobs.siemens.com/en_US/externaljobs",
+      "query": "2027"
+    },
+    {
+      "company": "Texas Instruments",
+      "kind": "oracle",
+      "platform": "Oracle",
+      "host": "https://edbz.fa.us2.oraclecloud.com",
+      "site": "CX"
+    },
+    {
+      "company": "Infineon",
+      "kind": "eightfold",
+      "platform": "Eightfold",
+      "host": "https://jobs.infineon.com",
+      "domain": "infineon.com"
+    },
+    {
+      "company": "Renesas",
+      "kind": "smartrecruiters",
+      "platform": "SmartRecruiters",
+      "token": "RenesasElectronics"
+    },
+    {
+      "company": "Western Digital",
+      "kind": "smartrecruiters",
+      "platform": "SmartRecruiters",
+      "token": "WesternDigital"
+    },
+    {
+      "company": "Lam Research",
+      "kind": "eightfold",
+      "platform": "Eightfold",
+      "host": "https://careers.lamresearch.com",
+      "domain": "lamresearch.com"
+    },
+    {
+      "company": "IMC",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "imc"
+    },
+    {
+      "company": "Akuna Capital",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "akunacapital"
+    },
+    {
+      "company": "Optiver",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "optiverus",
+      "default_country": "US"
+    },
+    {
+      "company": "Jump Trading",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "jumptrading"
+    },
+    {
+      "company": "Second Order Effects",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "soeffects",
+      "default_country": "US"
+    },
+    {
+      "company": "Tenstorrent",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "tenstorrent"
+    },
+    {
+      "company": "Lightmatter",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "lightmatter"
+    },
+    {
+      "company": "Rocket Lab",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "rocketlab"
+    },
+    {
+      "company": "Waymo",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "waymo"
+    },
+    {
+      "company": "Figure AI",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "figureai"
+    },
+    {
+      "company": "Apptronik",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "apptronik"
+    },
+    {
+      "company": "Vast",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "vast"
+    },
+    {
+      "company": "Planet Labs",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "planetlabs"
+    },
+    {
+      "company": "Formlabs",
+      "kind": "greenhouse",
+      "platform": "Greenhouse",
+      "token": "formlabs"
+    },
+    {
+      "company": "Shield AI",
+      "kind": "lever",
+      "platform": "Lever",
+      "token": "shieldai"
+    },
+    {
+      "company": "Cerebras",
+      "kind": "ashby",
+      "platform": "Ashby",
+      "token": "cerebras"
+    },
+    {
+      "company": "d-Matrix",
+      "kind": "ashby",
+      "platform": "Ashby",
+      "token": "d-matrix"
+    },
+    {
+      "company": "Etched",
+      "kind": "ashby",
+      "platform": "Ashby",
+      "token": "etched"
+    },
+    {
+      "company": "Skydio",
+      "kind": "ashby",
+      "platform": "Ashby",
+      "token": "skydio"
+    },
+    {
+      "company": "Saronic",
+      "kind": "ashby",
+      "platform": "Ashby",
+      "token": "saronic"
+    }
+  ]
+}
