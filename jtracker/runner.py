@@ -61,7 +61,6 @@ def _save_state(seen: set[str], pending: list[dict[str, Any]]) -> None:
         json.dumps(
             {
                 "version": 2,
-                "updated_at": datetime.now(TIMEZONE).isoformat(timespec="seconds"),
                 "seen": sorted(seen),
                 "pending": pending,
             },
