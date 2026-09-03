@@ -1,5 +1,25 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "job": {
+        "company": "Siemens EDA",
+        "country_code": "",
+        "description": "Job ID 517341 Posted since 01-Sep-2026 Organization Mobility Field of work Internal Services Company Siemens Mobility, Inc Experience level Student (Not Yet Graduated) Job type Full-time Work mode Office/Site only Employment type Fixed Term Location(s) Sacramento - California - United States of America",
+        "location": "Sacramento , California , United States of America",
+        "platform": "Avature",
+        "posted": "",
+        "source_id": "Job ID: 517341",
+        "title": "Electrical Engineering Co-Op 2027- Customer Service",
+        "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/517341"
+      },
+      "key": "a0b4be94c04225981fbba87f",
+      "reasons": [
+        "2027 internship",
+        "electrical"
+      ],
+      "score": 68
+    }
+  ],
   "seen": [
     "023f3878ee56acb08b65b2ab",
     "0cec459cf7a1a022d322d26c",
@@ -40,6 +60,7 @@
     "98e844c56b2383e638a786d1",
     "99893a6dab8922989d114abf",
     "9c27fcb3e51ed2b261416427",
+    "a0b4be94c04225981fbba87f",
     "a46c5c4d6f6340691d68a0b8",
     "ac7e795f42b59e150bf6ba51",
     "afd2472f27bb8dca25932d99",
