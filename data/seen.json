@@ -1,5 +1,29 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "job": {
+        "company": "GlobalFoundries",
+        "country_code": "US",
+        "description": "About GlobalFoundries GlobalFoundries (GF) is a leading manufacturer of essential semiconductors, enabling AI at scale from the cloud to the physical world. Through deep partnerships with customers, GF delivers differentiated, power efficient and high performance solutions for high growth markets. GF is a trusted and holistic technology partner for customers around the world. GF\u2019s talented, global team remains focused every day on security, longevity and sustainability. For more information, visit www.gf.com. Internship Program Overview: Our Interns & Co-ops are our entry-level talent pipeline for GF across the globe. Our goal is to provide students with a meaningful work experience that will equip them with the skills to embark on a career in the fast-paced and growing semiconductor industry after graduation. As an intern at GF, you\u2019ll experience one-on-one mentorship, work assignments that prioritize your growth and potential, professional development opportunities, and the chance to network with executives. Summary of Role: GlobalFoundries seeks a Field Application Engineering Intern. You will provide technical support to GlobalFoundries customers, supporting technology evaluations that lead to design wins, design-ins, tapeout activities, and successful first-time-right outcomes. Essential Responsibilities include: Familiarize with GF technology offerings and learn technology features and differentiation from GF experts. Collaborate with internal teams and stakeholders to match GF technology offerings with customer requirements. Assist customers with technical evaluation and tapeout execution in partnership with GF subject matter experts. Create customer-facing technical documentation demonstrating how GF technology solves application and market needs. Other Responsibilities: Perform all activities in a safe and responsible manner and support all Environmental, Health, Safety & Security requirements and programs. Required Qualifications: Education \u2013 At least a sophomore at time of application and actively pursuing a Bachelor\u2019s or Master\u2019s degree in Electrical Engineering or related field through an accredited degree program during the time of internship. Must have at least an overall 3.0 GPA and be in good academic standing. Language Fluency - English (Written & Verbal) Ability to work at least 40 hours per week during the internship. Preferred Qualifications: Prior related internship or co-op experience Demonstrated prior leadership experience in the workplace, school projects, competitions, etc. Strong interest in leveraging AI tools and emerging technologies to enhance productivity, streamline workflows, and support effective decision-making. Project management skills, i.e., the ability to innovate and execute on solutions that matter; the ability to navigate ambiguity. Strong written and verbal communication skills Strong planning & organizational skills Course work in Circuit Design, Semiconductor Device Physics, or Materials Science Skills: Microsoft Office Suite, EDA tools, and Linux #InternshipProgramUS Expected Salary Range $20.00 - $40.00 Expected Salary Range $0.00 - $0.00 The exact Salary will be determined based on qualifications, experience and location. If you need a reasonable accommodation for any part of the employment process, please contact us by email at usaccommodations@gf.com and let us know the nature of your request and your contact information. Requests for accommodation will be considered on a case-by-case basis. Please note that only inquiries concerning a request for reasonable accommodation will be responded to from this email address. An offer with GlobalFoundries is conditioned upon the successful completion of pre-employment conditions, as applicable, and subject to applicable laws and regulations. GlobalFoundries is fully committed to equal opportunity in the workplace and believes that cultural diversity within the company enhances its business potential. GlobalFoundries goal of excellence in business necessitates the attraction and retention of highly qualified people. Artificial barriers and stereotypic biases detract from this objective and may be illegally discriminatory. All policies and processes which pertain to employees including recruitment, selection, training, utilization, promotion, compensation, benefits, extracurricular programs, and termination are created and implemented without regard to age, ethnicity, ancestry, color, marital status, medical condition, mental or physical disability, national origin, race, religion, political and/or third-party affiliation, sex, sexual orientation, gender identity or expression, veteran status, or any other characteristic or category specified by local, state or federal law",
+        "location": "USA - Texas - Austin",
+        "platform": "Workday",
+        "posted": "Posted Yesterday",
+        "source_id": "JR-2604220",
+        "title": "Field Application Engineering Intern (Summer 2027)",
+        "url": "https://globalfoundries.wd1.myworkdayjobs.com/External/job/USA---Texas---Austin/Field-Application-Engineering-Intern--Summer-2027-_JR-2604220"
+      },
+      "key": "2f21b3168b8fe1f81f4edc1c",
+      "reasons": [
+        "Summer 2027",
+        "circuit design",
+        "semiconductor device",
+        "eda",
+        "tapeout",
+        "major metro"
+      ],
+      "score": 84
+    }
+  ],
   "seen": [
     "023f3878ee56acb08b65b2ab",
     "03faf786e163e92b45374733",
@@ -24,6 +48,7 @@
     "2d24eaed02031b8d70337f3c",
     "2ddba76cb513d8c7db56ced8",
     "2e39e3c21f7459f8e67234c9",
+    "2f21b3168b8fe1f81f4edc1c",
     "3053f0342f9744ce129f44be",
     "305da365f08af7b7f76920b2",
     "30bff93e4449792c3f91a941",
