@@ -1,47 +1,5 @@
 {
-  "pending": [
-    {
-      "job": {
-        "company": "GlobalFoundries",
-        "country_code": "US",
-        "description": "About GlobalFoundries GlobalFoundries (GF) is a leading manufacturer of essential semiconductors, enabling AI at scale from the cloud to the physical world. Through deep partnerships with customers, GF delivers differentiated, power\u2011efficient and high\u2011performance solutions for high\u2011growth markets. GF is a trusted and holistic technology partner for customers around the world. GF\u2019s talented, global team remains focused every day on security, longevity and sustainability. For more information, visit www.gf.com . Internship Program Overview: Our Interns & Co-ops are our entry-level talent pipeline for GF across the globe. Our goal is to provide students with a meaningful work experience that will equip them with the skills to embark on a career in the fast-paced and growing semiconductor industry after graduation. As an intern at GF, you\u2019ll experience one-on-one mentorship, work assignments that prioritize your growth and potential, professional development opportunities, and the chance to network with executives. Summary of Role: MIPS \u2013 A GlobalFoundries company is seeking a Design Verification Engineer Intern to join the CPU verification team in Plano, Texas. The intern will gain hands-on experience verifying processor components, with a focus on CPU core functionality, performance, and modeling, while learning advanced verification methodologies and collaborating with experienced architects and designers. Essential Responsibilities include: Perform functional verification of CPU cores and related subsystems. Interpret microarchitectural specifications and contribute to effective verification strategies. Develop and execute verification plans, including testbench creation and test case development. Write directed and constrained-random test cases in SystemVerilog, C, and Assembly. Use UVM-based environments for coverage-driven verification. Analyze coverage reports and support closure of functional and code coverage gaps. Automate regression and verification flows using Python, Perl, or Shell. Collaborate with engineers and architects to support design quality and performance. Other Responsibilities: Perform all activities in a safe and responsible manner and support all Environmental, Health, Safety & Security requirements and programs. Required Qualifications: Education \u2013 At least a sophomore at time of application and actively pursuing a Bachelor\u2019s in Electronics Engineering, Electrical Engineering, Computer Engineering, Computer Science, or related field through an accredited degree program during the time of internship. Must have at least an overall 3.0 GPA and be in good academic standing. Language Fluency - English (Written & Verbal) Ability to work at least 40 hours per week during the internship. Coursework or project experience with SystemVerilog, UVM, or constrained-random verification. Familiarity with CPU architectures such as RISC-V, ARM, or MIPS. Basic understanding of cache and coherency concepts. Scripting experience in Python, Perl, or Shell. Strong analytical, problem-solving, and technical communication skills. Self-motivated and collaborative, with the ability to contribute to project goals. Preferred Qualifications: Prior related internship or co-op experience Demonstrated prior leadership experience in the workplace, school projects, competitions, etc. Strong interest in leveraging AI tools and emerging technologies to enhance productivity, streamline workflows, and support effective decision-making. Project management skills, i.e., the ability to innovate and execute on solutions that matter; the ability to navigate ambiguity. Strong written and verbal communication skills Strong planning & organizational skills Exposure to RISC-V architecture. Knowledge of interconnect protocols such as AXI, ACE, or CHI. Experience with FPGA prototyping or emulation platforms. #InternshipProgramUS Expected Salary Range $20.00 - $40.00 Expected Salary Range $0.00 - $0.00 The exact Salary will be determined based on qualifications, experience and location. If you need a reasonable accommodation for any part of the employment process, please contact us by email at usaccommodations@gf.com and let us know the nature of your request and your contact information. Requests for accommodation will be considered on a case-by-case basis. Please note that only inquiries concerning a request for reasonable accommodation will be responded to from this email address. An offer with GlobalFoundries is conditioned upon the successful completion of pre-employment conditions, as applicable, and subject to applicable laws and regulations. GlobalFoundries is fully committed to equal opportunity in the workplace and believes that cultural diversity within the company enhances its business potential. GlobalFoundries goal of excellence in business necessitates the attraction and retention of highly qualified people. Artificial barriers and stereotypic biases detract from this objective and may be illegally discriminatory. All policies and processes which pertain to employees including recruitment, selection, training, utilization, promotion, compensation, benefits, extracurricular programs, and termination are created and implemented without regard to age, ethnicity, ancestry, color, marital status, medical condition, mental or physical disability, national origin, race, religion, political and/or third-party affiliation, sex, sexual orientation, gender identity or expression, veteran status, or any other characteristic or category specified by local, state or federal law",
-        "location": "USA - Texas - Richardson",
-        "platform": "Workday",
-        "posted": "Posted Today",
-        "source_id": "JR-2604022",
-        "title": "Design Verification Engineer Intern (Summer 2027)",
-        "url": "https://globalfoundries.wd1.myworkdayjobs.com/External/job/USA---Texas---Richardson/Design-Verification-Engineer-Intern--Summer-2027-_JR-2604022"
-      },
-      "key": "5369ecee43fedbf0651b6cb4",
-      "reasons": [
-        "Summer 2027",
-        "verification",
-        "systemverilog",
-        "fpga",
-        "design verification"
-      ],
-      "score": 85
-    },
-    {
-      "job": {
-        "company": "GlobalFoundries",
-        "country_code": "US",
-        "description": "About GlobalFoundries GlobalFoundries (GF) is a leading manufacturer of essential semiconductors, enabling AI at scale from the cloud to the physical world. Through deep partnerships with customers, GF delivers differentiated, power-efficient and high-performance solutions for high-growth markets. GF is a trusted and holistic technology partner for customers around the world. GF\u2019s talented, global team remains focused every day on security, longevity and sustainability. For more information, visit www.gf.com . Internship Program Overview: Our Interns & Co-ops are our entry-level talent pipeline for GF across the globe. Our goal is to provide students with a meaningful work experience that will equip them with the skills to embark on a career in the fast-paced and growing semiconductor industry after graduation. As an intern at GF, you\u2019ll experience one-on-one mentorship, work assignments that prioritize your growth and potential, professional development opportunities, and the chance to network with executives. Summary of Role: Our Fab 9 location in Essex Junction, VT is looking to hire Controls Engineering Interns who are pursuing, and have completed at least their first year of, a four-year bachelor\u2019s degree in Chemical Engineering, Materials Science, Physics, or another relevant discipline. The intern will support fab-floor operations with a primary focus on resolving equipment and process issues, lead an assigned project to completion, and present project results during an end-of-year intern poster session. Essential Responsibilities include: Establish and manage the equipment quality control plan. Drive continuous improvement efforts in support of throughput improvement, cost reduction, and yield learning. Define and maintain equipment installation process qualification or installation roadmaps. Drive process qualifications and implement process control plans and configurations with area equipment and process engineers, including equipment installation, start-up, qualification, and volume ramp. Design, execute, and analyze experiments to screen and optimize manufacturing processes to meet technology targets for performance, yield, and reliability, as well as manufacturing targets for process stability and cost of ownership. Collaborate with GlobalFoundries integration and process engineering teams to support the development of improved next-generation technologies and technology transfer to other fabrication facilities. Integrate the equipment and process aspects of technical issues, with a focus on delivering the appropriate results for the product. Other Responsibilities: Perform all activities in a safe and responsible manner and support all Environmental, Health, Safety & Security requirements and programs. Required Qualifications: Education \u2013 At least a sophomore at time of application and actively pursuing a Bachelor\u2019s degree in Chemical Engineering, Materials Science Engineering, Physics Engineering, or another relevant discipline or field through an accredited degree program during the time of internship. Must have at least an overall 3.0 GPA and be in good academic standing. Language Fluency - English (Written & Verbal) Ability to work at least 40 hours per week during the internship. Preferred Qualifications: Prior related internship or co-op experience Demonstrated prior leadership experience in the workplace, school projects, competitions, etc. Strong interest in leveraging AI tools and emerging technologies to enhance productivity, streamline workflows, and support effective decision-making. Project management skills, i.e., the ability to innovate and execute on solutions that matter; the ability to navigate ambiguity. Strong written and verbal communication skills Strong planning & organizational skills Knowledge of semiconductor manufacturing Knowledge of Statistical Process Control (SPC) and Design of Experiments (DOE) Ability to work effectively and efficiently with diverse teams, customers, and internal and external partners. #InternshipProgramUS Expected Salary Range $20.00 - $40.00 Expected Salary Range $0.00 - $0.00 The exact Salary will be determined based on qualifications, experience and location. If you need a reasonable accommodation for any part of the employment process, please contact us by email at usaccommodations@gf.com and let us know the nature of your request and your contact information. Requests for accommodation will be considered on a case-by-case basis. Please note that only inquiries concerning a request for reasonable accommodation will be responded to from this email address. An offer with GlobalFoundries is conditioned upon the successful completion of pre-employment conditions, as applicable, and subject to applicable laws and regulations. GlobalFoundries is fully committed to equal opportunity in the workplace and believes that cultural diversity within the company enhances its business potential. GlobalFoundries goal of excellence in business necessitates the attraction and retention of highly qualified people. Artificial barriers and stereotypic biases detract from this objective and may be illegally discriminatory. All policies and processes which pertain to employees including recruitment, selection, training, utilization, promotion, compensation, benefits, extracurricular programs, and termination are created and implemented without regard to age, ethnicity, ancestry, color, marital status, medical condition, mental or physical disability, national origin, race, religion, political and/or third-party affiliation, sex, sexual orientation, gender identity or expression, veteran status, or any other characteristic or category specified by local, state or federal law",
-        "location": "USA - Vermont - Essex Junction",
-        "platform": "Workday",
-        "posted": "Posted Today",
-        "source_id": "JR-2604647",
-        "title": "Controls Engineering Intern (Summer 2027)",
-        "url": "https://globalfoundries.wd1.myworkdayjobs.com/External/job/USA---Vermont---Essex-Junction/Controls-Engineering-Intern--Summer-2027-_JR-2604647"
-      },
-      "key": "2dd2a59bf73243312b8061ff",
-      "reasons": [
-        "Summer 2027",
-        "controls"
-      ],
-      "score": 63
-    }
-  ],
+  "pending": [],
   "seen": [
     "023f3878ee56acb08b65b2ab",
     "02857fb65262ac366f4a7b4c",
@@ -61,6 +19,7 @@
     "14190494150cc11551a4d7cd",
     "154280b48a7d686e48f5eaf4",
     "15903be662fabc9bcc96",
+    "188d37ef0a459827b93033f3",
     "18f6fee4bee60798324700c3",
     "1bdde4055da210d76bdb",
     "1e14b06a9c714c7fac7ffe3b",
@@ -138,6 +97,7 @@
     "79bd977abd1c66cd5ee930b8",
     "7a9883bbde47bde1c2c2ca19",
     "7d6e665ed3828109dd9f9712",
+    "7e89d1b302d376189d1e8590",
     "7ecf27b6411244b76356e7b9",
     "7eebfbd431aa0841dc869bdd",
     "7f8b25e8cbe8e90a1c7084dd",
@@ -162,6 +122,7 @@
     "97452e400b2bc1da1eff8e4b",
     "98e844c56b2383e638a786d1",
     "99893a6dab8922989d114abf",
+    "9b15a88a3464e270117e0478",
     "9b62e018b7c8380d0831ec79",
     "9bac4dfe6f09e4888887c808",
     "9c27fcb3e51ed2b261416427",
@@ -198,6 +159,7 @@
     "bc4e1b25a2b7f7e90b411875",
     "bd3048cd59e4741eab6b2dc5",
     "bd6db299e9eb35c473cef945",
+    "c04793fb2fb6456601264fbe",
     "c0b88295375840c3d80f",
     "c1995bd144ab6b2771364ca9",
     "c31295a991f3f739cabfee82",
@@ -223,6 +185,7 @@
     "d63d482510b4dcb9e4b68e61",
     "d8187349725051c37684ae86",
     "d8a4109ce0962b1f9666be40",
+    "dd5d1f2207dc3878d36915a5",
     "ddc51bbc6923e9d16f89661e",
     "de409be021da951d5ca972ac",
     "de4514a1c485543b903ddc31",
@@ -232,6 +195,7 @@
     "e2c23e947139720f2bff0dcb",
     "e2efa0cceb00d4a657f8cb40",
     "ea4fd97b8aa89c38c45e83af",
+    "ea8abab0c00ed7c35c245be5",
     "ec363e1ad2d87cdf57893b99",
     "eea2b7488535731a0993d3df",
     "f12df8ad9bd190433631432c",
