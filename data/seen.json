@@ -1,26 +1,5 @@
 {
-  "pending": [
-    {
-      "job": {
-        "company": "Marvell",
-        "country_code": "",
-        "description": "",
-        "location": "Santa Clara, CA",
-        "platform": "Workday",
-        "posted": "",
-        "source_id": "/job/Santa-Clara-CA/Firmware-Engineer-Intern--MS---Summer-2027_2604513",
-        "title": "Firmware Engineer Intern, MS - Summer 2027",
-        "url": "https://marvell.wd1.myworkdayjobs.com/MarvellCareers/job/Santa-Clara-CA/Firmware-Engineer-Intern--MS---Summer-2027_2604513"
-      },
-      "key": "55cdce05f9d17fae1f6062b5",
-      "reasons": [
-        "Summer 2027",
-        "firmware",
-        "major metro"
-      ],
-      "score": 72
-    }
-  ],
+  "pending": [],
   "seen": [
     "0124a10d720250b57906f0a8",
     "023f3878ee56acb08b65b2ab",
@@ -156,6 +135,7 @@
     "85f46fd649b9d505845169a5",
     "86e5c24800fcbe4269321c18",
     "876d811c029498cb064fd3ea",
+    "8a04d0d0e2b3d04d3d1b9c9e",
     "8a7dc29a28f4be9523698e5f",
     "8b05d572cd1285115cdab53a",
     "8b2aea4b364e74603502c411",
