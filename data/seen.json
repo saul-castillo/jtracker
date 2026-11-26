@@ -1,5 +1,27 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "job": {
+        "company": "Intel",
+        "country_code": "US",
+        "description": "Job Details: Job Description: The Role and Impact As a Design Verification Engineering Undergraduate Intern, you will contribute to the functional logic verification of silicon designs, ensuring they meet specifications. Your day-to-day tasks will include supporting the development of verification plans, creating test benches, and assisting in building the verification environment to validate design coverage. This role is vital to uncovering and resolving design bugs, ensuring implementation efficiency, and collaborating with architecture and design teams to achieve functional correctness. Business group The Data Center Group (DCG) is at the forefront of driving innovation and delivering advanced solutions for data-centric computing. Focused on enabling the next generation of technology, DCG supports Intel's mission to power the infrastructure of tomorrow through cutting-edge design and development. This group provides a dynamic, collaborative environment where team members contribute to meaningful projects with a global impact. Key Responsibilities - Support the development of verification plans, test benches, and verification environments to ensure design coverage. - Assist in emulation and simulation efforts to verify designs and analyze power and performance metrics. - Collaborate with architecture and design teams to ensure functional correctness and efficiency. - Contribute to debugging issues, performing root cause analysis, and proposing corrective measures to resolve design challenges. - Participate in hands-on projects and gain exposure to industry-leading tools and processes. Qualifications: You must possess the below minimum qualifications to be initially considered for this position. Preferred qualifications are in addition to the minimum qualifications and are considered a plus factor in identifying top candidates. Experience listed below would be obtained through a combination of your schoolwork, classes, research, relevant previous job, and/or internship experiences. Minimum Qualifications - Must be pursuing a Bachelors degree in Electrical Engineering, Computer Engineering, Computer Science, or a related field - Proficiency in programming languages such as SystemVerilog or Python. - Familiarity with simulation tools and/or verification methodologies. - Understanding of basic concepts in logic design and verification processes. Preferred Qualifications -GPA 3.0 - Strong problem-solving skills and a proactive approach to learning and development. - Effective communication and collaboration skills, contributing to teamwork in a dynamic environment. - Enthusiasm for exploring the latest technology trends in silicon design and verification. - Passion for innovation and commitment to delivering high-quality solutions. Explore this exciting opportunity to grow your skills, work on impactful projects, and contribute to Intel's cutting-edge technology development. Join us to shape the future of data-centric computing-apply today. Job Type: Student / Intern Shift: Shift 1 (United States of America) Primary Location: US, Colorado, Fort Collins Additional Locations: US, California, Santa Clara, US, Oregon, Hillsboro, US, Texas, Austin Posting Statement: All qualified applicants will receive consideration for employment without regard to race, color, religion, religious creed, sex, national origin, ancestry, age, physical or mental disability, medical condition, genetic information, military and veteran status, marital status, pregnancy, gender, gender expression, gender identity, sexual orientation, or any other characteristic protected by local law, regulation, or ordinance. Position of Trust N/A Benefits We offer a total compensation package that ranks among the best in the industry. It consists of competitive pay, stock bonuses, and benefit programs which include health, retirement, and vacation. Find out more about the benefits of working at Intel . Annual Salary Range for jobs which could be performed in the US: $91,198.00-91,202.00 USD (Hourly Role) The range displayed on this job posting reflects the minimum and maximum target compensation for the position across all US locations. Our standard internship rates are based on your degree, location, and the job role. Your recruiter can share more about the specific compensation range for your preferred location and job role during the hiring process. Work Model for this Role This role will require an on-site presence. * Job posting details (such as work model, location or time type) are subject to change.The application window for this job posting is expected to end by 01/22/2027 * ADDITIONAL INFORMATION:  Intel is committed to Responsible Business Alliance (RBA) compliance and ethical hiring practices. We do not charge any fees during our hiring process. Candidates should never be required to pay recruitment fees, medical examination fees, or any other charges as a condition of employment. If you are asked to pay any fees during our hiring process, please report this immediately to your recruiter.",
+        "location": "US, Colorado, Fort Collins",
+        "platform": "Workday",
+        "posted": "Posted 2 Days Ago",
+        "source_id": "JR0287646",
+        "title": "Design Verification Intern 2027",
+        "url": "https://intel.wd1.myworkdayjobs.com/External/job/US-Colorado-Fort-Collins/Design-Verification-Intern-2027_JR0287646"
+      },
+      "key": "d460f10a144af537b370607c",
+      "reasons": [
+        "2027 internship",
+        "verification",
+        "systemverilog",
+        "design verification"
+      ],
+      "score": 79
+    }
+  ],
   "seen": [
     "0124a10d720250b57906f0a8",
     "023f3878ee56acb08b65b2ab",
@@ -224,6 +246,7 @@
     "d31cfb86a0f97461b7d34b32",
     "d3823581ffe918b1b1fed1d4",
     "d4412ec5c6602e9615928320",
+    "d460f10a144af537b370607c",
     "d4b2fd45f8927b5e4ce52262",
     "d54dc06d5ff831ad40098843",
     "d59de6b5c99d958920e1fc2b",
